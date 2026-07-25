@@ -15,7 +15,7 @@ module "db" {
   vpc_security_group_ids = [data.aws_ssm_parameter.db_sg_id.value]
 
   # DB subnet group
-  db_subnet_group_name            = data.aws_ssm_parameter.db_subnet_group_name
+  db_subnet_group_name   = data.aws_ssm_parameter.db_subnet_group_name.value
 
   # DB parameter group
   family = "mysql8.0"
@@ -23,8 +23,17 @@ module "db" {
   # DB option group
   major_engine_version = "8.0"
 
-  # Database Deletion Protection
-  deletion_protection = true
+  tags = merge(
+    var.common_tags,
+    {
+        Name = "${var.project_name}-${var.environment}"
+    }
+  )
+
+  manage_master_user_password = false
+  password_wo = "ExpenseApp1"
+
+  skip_final_snapshot = true
 
   parameters = [
     {
