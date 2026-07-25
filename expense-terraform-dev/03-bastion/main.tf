@@ -4,7 +4,8 @@ module "bastion" {
   name = "single-instance"
 
   instance_type = "t3.micro"
-  subnet_id     = "subnet-eddcdzz4"
+  vpc_security_group_ids = [data.aws_ssm_parameter.bastion_sg_id.value]
+  subnet_id     = 
 
   tags = {
     Terraform   = "true"
