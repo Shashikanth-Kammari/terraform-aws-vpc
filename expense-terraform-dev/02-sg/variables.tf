@@ -25,3 +25,11 @@ variable "backend_sg_description" {
 variable "frontend_sg_description" {
   default = "Sg group for frontend instances"
 }
+
+variable "bastion_sg_description" {
+  default = "Sg group for bastion instances"
+}
+
+variable "ansible_sg_description" {
+  default = "Sg group for ansible instances"
+}
