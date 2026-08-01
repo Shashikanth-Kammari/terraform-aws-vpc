@@ -1,6 +1,6 @@
 # Custom AWS VPC Module
 
-![alt text](vpc(1).jpg)
+![alt text](vpc.jpg)
 
 This module is developed for joindevops.com. We are creating following resources. This module creates resources in first 2 AZ for HA.
 
